@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="tiktok-developers-site-verification" content="qU3vut5mkEDKxVISDHOAadfQSR83ksVz">
-    <title>Termos de Serviço | DarkFlow</title>
+    <meta name="description" content="DarkFlow - Automação de vídeos com Inteligência Artificial. Crie, edite e publique vídeos automaticamente no TikTok.">
+    <title>DarkFlow | Automação de Vídeos com IA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -20,316 +24,633 @@
             line-height: 1.7;
         }
         
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 60px 24px;
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 15, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(138, 43, 226, 0.2);
         }
         
-        header {
-            text-align: center;
-            margin-bottom: 60px;
-            padding-bottom: 40px;
-            border-bottom: 1px solid rgba(138, 43, 226, 0.3);
-        }
-        
-        .logo {
-            font-size: 2.5rem;
+        .nav-logo {
+            font-size: 1.8rem;
             font-weight: 800;
             background: linear-gradient(135deg, #8a2be2 0%, #00d4ff 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: #c0c0c0;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #8a2be2;
+        }
+        
+        .nav-cta {
+            background: linear-gradient(135deg, #8a2be2 0%, #6a1fb2 100%);
+            color: white !important;
+            padding: 10px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+        
+        .nav-cta:hover {
+            opacity: 0.9;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 120px 24px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(138, 43, 226, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        
+        .hero-badge {
+            background: rgba(138, 43, 226, 0.2);
+            border: 1px solid rgba(138, 43, 226, 0.4);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: #8a2be2;
+            margin-bottom: 32px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            max-width: 900px;
+        }
+        
+        .hero h1 span {
+            background: linear-gradient(135deg, #8a2be2 0%, #00d4ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            color: #a0a0a0;
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #8a2be2 0%, #6a1fb2 100%);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(138, 43, 226, 0.4);
+        }
+        
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.3s;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 100px 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
             margin-bottom: 16px;
         }
         
-        h1 {
-            font-size: 2rem;
+        .section-header p {
+            color: #a0a0a0;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+        
+        .feature-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(138, 43, 226, 0.2);
+            border-radius: 16px;
+            padding: 32px;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(138, 43, 226, 0.5);
+        }
+        
+        .feature-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, rgba(138, 43, 226, 0.2) 0%, rgba(0, 212, 255, 0.2) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.25rem;
             font-weight: 600;
+            margin-bottom: 12px;
             color: #fff;
-            margin-bottom: 8px;
         }
         
-        .last-update {
-            color: #888;
-            font-size: 0.9rem;
+        .feature-card p {
+            color: #a0a0a0;
+            font-size: 0.95rem;
         }
         
-        section {
-            margin-bottom: 48px;
+        /* How it Works Section */
+        .how-it-works {
+            padding: 100px 24px;
+            background: rgba(138, 43, 226, 0.03);
         }
         
-        h2 {
+        .how-it-works .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .steps {
+            display: flex;
+            flex-direction: column;
+            gap: 48px;
+            margin-top: 60px;
+        }
+        
+        .step {
+            display: flex;
+            gap: 32px;
+            align-items: flex-start;
+        }
+        
+        .step-number {
+            flex-shrink: 0;
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, #8a2be2 0%, #6a1fb2 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+        }
+        
+        .step-content h3 {
             font-size: 1.4rem;
             font-weight: 600;
+            margin-bottom: 8px;
             color: #fff;
-            margin-bottom: 20px;
-            padding-bottom: 12px;
-            border-bottom: 2px solid rgba(138, 43, 226, 0.5);
+        }
+        
+        .step-content p {
+            color: #a0a0a0;
+            font-size: 1rem;
+        }
+        
+        /* Integration Section */
+        .integrations {
+            padding: 100px 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .integration-logos {
             display: flex;
+            justify-content: center;
+            gap: 48px;
+            flex-wrap: wrap;
+            margin-top: 48px;
+        }
+        
+        .integration-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 32px 48px;
+            display: flex;
+            flex-direction: column;
             align-items: center;
             gap: 12px;
         }
         
-        h2 .number {
-            background: linear-gradient(135deg, #8a2be2 0%, #6a1fb2 100%);
-            color: #fff;
-            width: 32px;
-            height: 32px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.9rem;
+        .integration-item span {
+            font-size: 2.5rem;
+        }
+        
+        .integration-item p {
+            color: #a0a0a0;
+            font-weight: 500;
+        }
+        
+        /* CTA Section */
+        .cta {
+            padding: 100px 24px;
+            text-align: center;
+            background: linear-gradient(180deg, transparent 0%, rgba(138, 43, 226, 0.1) 100%);
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
             font-weight: 700;
-        }
-        
-        p {
             margin-bottom: 16px;
-            color: #c0c0c0;
         }
         
-        ul {
-            margin: 16px 0;
-            padding-left: 24px;
-        }
-        
-        li {
-            margin-bottom: 12px;
-            color: #c0c0c0;
-        }
-        
-        li::marker {
-            color: #8a2be2;
-        }
-        
-        .highlight-box {
-            background: rgba(138, 43, 226, 0.1);
-            border: 1px solid rgba(138, 43, 226, 0.3);
-            border-radius: 12px;
-            padding: 24px;
-            margin: 24px 0;
-        }
-        
-        .highlight-box h3 {
-            color: #8a2be2;
+        .cta p {
+            color: #a0a0a0;
             font-size: 1.1rem;
-            margin-bottom: 12px;
+            margin-bottom: 32px;
         }
         
-        .warning-box {
-            background: rgba(255, 107, 107, 0.1);
-            border: 1px solid rgba(255, 107, 107, 0.3);
-            border-radius: 12px;
-            padding: 24px;
-            margin: 24px 0;
-        }
-        
-        .warning-box h3 {
-            color: #ff6b6b;
-            font-size: 1.1rem;
-            margin-bottom: 12px;
-        }
-        
-        .contact-box {
-            background: rgba(0, 212, 255, 0.1);
-            border: 1px solid rgba(0, 212, 255, 0.3);
-            border-radius: 12px;
-            padding: 24px;
-            margin: 24px 0;
-            text-align: center;
-        }
-        
-        .contact-box a {
-            color: #00d4ff;
-            text-decoration: none;
-            font-weight: 600;
-        }
-        
-        .contact-box a:hover {
-            text-decoration: underline;
-        }
-        
+        /* Footer */
         footer {
-            text-align: center;
-            padding-top: 40px;
-            border-top: 1px solid rgba(138, 43, 226, 0.3);
-            color: #666;
+            padding: 60px 24px 40px;
+            border-top: 1px solid rgba(138, 43, 226, 0.2);
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        
+        .footer-brand {
+            max-width: 300px;
+        }
+        
+        .footer-brand .nav-logo {
+            margin-bottom: 16px;
+            display: block;
+        }
+        
+        .footer-brand p {
+            color: #888;
             font-size: 0.9rem;
         }
         
-        footer a {
-            color: #8a2be2;
+        .footer-links {
+            display: flex;
+            gap: 60px;
+        }
+        
+        .footer-column h4 {
+            color: #fff;
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-column a {
+            color: #888;
             text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+        
+        .footer-column a:hover {
+            color: #8a2be2;
+        }
+        
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 40px auto 0;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+            color: #666;
+            font-size: 0.85rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 900px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+            }
         }
         
         @media (max-width: 600px) {
-            .container {
-                padding: 40px 16px;
+            nav {
+                padding: 16px 20px;
             }
             
-            .logo {
+            .nav-links {
+                display: none;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
                 font-size: 2rem;
             }
             
-            h1 {
-                font-size: 1.5rem;
+            .step {
+                flex-direction: column;
+                text-align: center;
+                align-items: center;
             }
             
-            h2 {
-                font-size: 1.2rem;
+            .footer-links {
+                flex-direction: column;
+                gap: 32px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="logo">DarkFlow</div>
-            <h1>Termos de Serviço</h1>
-            <p class="last-update">Última atualização: 28 de Março de 2026</p>
-        </header>
-
-        <section>
-            <h2><span class="number">1</span> Aceitação dos Termos</h2>
-            <p>Ao acessar ou utilizar a plataforma DarkFlow ("Serviço"), você concorda com estes Termos de Serviço. Se você não concordar com qualquer parte destes termos, não poderá utilizar nossos serviços.</p>
-            <p>O DarkFlow é uma plataforma de automação de vídeos com inteligência artificial, oferecendo ferramentas para criação, edição e otimização de conteúdo audiovisual.</p>
-        </section>
-
-        <section>
-            <h2><span class="number">2</span> Descrição do Serviço</h2>
-            <p>O DarkFlow oferece:</p>
-            <ul>
-                <li><strong>Automação de Edição:</strong> Ferramentas de IA para corte, legendas e efeitos automáticos</li>
-                <li><strong>Geração de Conteúdo:</strong> Criação assistida por IA de roteiros, thumbnails e elementos visuais</li>
-                <li><strong>Otimização:</strong> Análise e sugestões para melhorar performance de vídeos</li>
-                <li><strong>Processamento em Nuvem:</strong> Renderização e processamento de vídeos na infraestrutura DarkFlow</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2><span class="number">3</span> Cadastro e Conta</h2>
-            <p>Para utilizar o DarkFlow, você deve:</p>
-            <ul>
-                <li>Ter pelo menos 18 anos de idade ou a maioridade legal em sua jurisdição</li>
-                <li>Fornecer informações verdadeiras, precisas e completas durante o cadastro</li>
-                <li>Manter a segurança de sua conta e senha</li>
-                <li>Notificar imediatamente qualquer uso não autorizado de sua conta</li>
-            </ul>
-            <p>Você é responsável por todas as atividades realizadas em sua conta.</p>
-        </section>
-
-        <section>
-            <h2><span class="number">4</span> Uso Aceitável</h2>
-            <p>Ao utilizar o DarkFlow, você concorda em NÃO:</p>
-            <ul>
-                <li>Criar conteúdo ilegal, difamatório, obsceno ou que viole direitos de terceiros</li>
-                <li>Usar o serviço para spam, phishing ou atividades fraudulentas</li>
-                <li>Tentar acessar sistemas ou dados sem autorização</li>
-                <li>Revender ou redistribuir o serviço sem autorização expressa</li>
-                <li>Sobrecarregar intencionalmente a infraestrutura do serviço</li>
-                <li>Criar deepfakes ou conteúdo enganoso com intenção maliciosa</li>
-                <li>Violar direitos autorais de terceiros</li>
-            </ul>
-            
-            <div class="warning-box">
-                <h3>⚠️ Violações</h3>
-                <p>O descumprimento destas regras pode resultar em suspensão ou encerramento permanente da conta, sem direito a reembolso.</p>
-            </div>
-        </section>
-
-        <section>
-            <h2><span class="number">5</span> Propriedade Intelectual</h2>
-            <p><strong>Seu Conteúdo:</strong> Você mantém todos os direitos sobre o conteúdo original que você envia para processamento no DarkFlow. Ao utilizar o serviço, você nos concede uma licença limitada para processar seu conteúdo conforme necessário para a prestação do serviço.</p>
-            <p><strong>Nossa Plataforma:</strong> O DarkFlow, incluindo sua tecnologia, marca, interface e código, é propriedade exclusiva da DarkFlow. Nenhum direito é transferido a você além da licença de uso conforme estes termos.</p>
-            <p><strong>Conteúdo Gerado por IA:</strong> O conteúdo criado utilizando nossas ferramentas de IA pertence a você, sujeito às limitações de uso de modelos de terceiros quando aplicável.</p>
-        </section>
-
-        <section>
-            <h2><span class="number">6</span> Pagamentos e Assinaturas</h2>
-            <ul>
-                <li>Os preços são exibidos em Reais (BRL) e podem variar conforme o plano escolhido</li>
-                <li>As assinaturas são renovadas automaticamente, salvo cancelamento prévio</li>
-                <li>O cancelamento deve ser feito com pelo menos 24 horas de antecedência da renovação</li>
-                <li>Não oferecemos reembolso proporcional por cancelamentos no meio do período</li>
-                <li>Reservamo-nos o direito de alterar preços com aviso prévio de 30 dias</li>
-            </ul>
-            
-            <div class="highlight-box">
-                <h3>💳 Métodos de Pagamento</h3>
-                <p>Aceitamos cartões de crédito, PIX e boleto bancário. Pagamentos são processados por parceiros certificados PCI-DSS.</p>
-            </div>
-        </section>
-
-        <section>
-            <h2><span class="number">7</span> Privacidade e Dados</h2>
-            <p>Sua privacidade é importante para nós. Ao utilizar o DarkFlow:</p>
-            <ul>
-                <li>Coletamos dados necessários para prestação do serviço conforme nossa Política de Privacidade</li>
-                <li>Não vendemos seus dados pessoais a terceiros</li>
-                <li>Seus vídeos são processados de forma segura e não são acessados por humanos, exceto quando necessário para suporte técnico com sua autorização</li>
-                <li>Você pode solicitar a exclusão de seus dados a qualquer momento</li>
-            </ul>
-            <p>Para mais detalhes, consulte nossa <a href="/privacidade" style="color: #8a2be2;">Política de Privacidade</a>.</p>
-        </section>
-
-        <section>
-            <h2><span class="number">8</span> Limitação de Responsabilidade</h2>
-            <p>O DarkFlow é fornecido "como está". Não garantimos:</p>
-            <ul>
-                <li>Disponibilidade ininterrupta do serviço</li>
-                <li>Que o serviço atenderá todos os seus requisitos específicos</li>
-                <li>Resultados específicos de performance ou engajamento em seus vídeos</li>
-            </ul>
-            <p>Em nenhuma circunstância seremos responsáveis por danos indiretos, incidentais, especiais ou consequenciais decorrentes do uso ou impossibilidade de uso do serviço.</p>
-            <p>Nossa responsabilidade total está limitada ao valor pago pelo serviço nos últimos 12 meses.</p>
-        </section>
-
-        <section>
-            <h2><span class="number">9</span> Modificações dos Termos</h2>
-            <p>Podemos atualizar estes Termos periodicamente. Quando fizermos alterações significativas:</p>
-            <ul>
-                <li>Notificaremos você por e-mail ou através da plataforma</li>
-                <li>A data de "última atualização" será revisada</li>
-                <li>O uso continuado após as alterações constitui aceitação dos novos termos</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2><span class="number">10</span> Rescisão</h2>
-            <p>Podemos suspender ou encerrar seu acesso ao serviço:</p>
-            <ul>
-                <li>Por violação destes Termos</li>
-                <li>Por solicitação de autoridades competentes</li>
-                <li>Por descontinuação do serviço (com aviso prévio de 30 dias)</li>
-            </ul>
-            <p>Você pode encerrar sua conta a qualquer momento através das configurações da plataforma ou entrando em contato conosco.</p>
-        </section>
-
-        <section>
-            <h2><span class="number">11</span> Disposições Gerais</h2>
-            <ul>
-                <li><strong>Lei Aplicável:</strong> Estes termos são regidos pelas leis da República Federativa do Brasil</li>
-                <li><strong>Foro:</strong> Fica eleito o foro da Comarca de São Paulo/SP para dirimir quaisquer controvérsias</li>
-                <li><strong>Independência das Cláusulas:</strong> Se qualquer disposição for considerada inválida, as demais permanecerão em vigor</li>
-                <li><strong>Acordo Integral:</strong> Estes Termos constituem o acordo integral entre você e o DarkFlow</li>
-            </ul>
-        </section>
-
-        <div class="contact-box">
-            <h3>📧 Dúvidas ou Sugestões?</h3>
-            <p>Entre em contato conosco:</p>
-            <p><a href="mailto:contato@darkflow.io">contato@darkflow.io</a></p>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-logo">DarkFlow</div>
+        <div class="nav-links">
+            <a href="#features">Recursos</a>
+            <a href="#how-it-works">Como Funciona</a>
+            <a href="#integrations">Integrações</a>
+            <a href="mailto:contato@darkflow.io" class="nav-cta">Contato</a>
         </div>
+    </nav>
 
-        <footer>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-badge">
+            🚀 Powered by AI
+        </div>
+        <h1>Automatize seus vídeos com <span>Inteligência Artificial</span></h1>
+        <p>Crie, edite e publique vídeos automaticamente no TikTok. Do prompt à publicação em segundos.</p>
+        <div class="hero-buttons">
+            <a href="mailto:contato@darkflow.io" class="btn-primary">
+                Começar Agora →
+            </a>
+            <a href="#how-it-works" class="btn-secondary">
+                Ver como funciona
+            </a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="section-header">
+            <h2>Recursos Poderosos</h2>
+            <p>Tudo que você precisa para criar conteúdo de qualidade em escala</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🎬</div>
+                <h3>Geração de Vídeos</h3>
+                <p>Crie vídeos completos a partir de prompts de texto usando IA generativa avançada.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">✂️</div>
+                <h3>Edição Automática</h3>
+                <p>Cortes, legendas, efeitos e transições aplicados automaticamente pelo nosso motor de IA.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎙️</div>
+                <h3>Voiceover com IA</h3>
+                <p>Narração natural em português com vozes realistas geradas por inteligência artificial.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📅</div>
+                <h3>Agendamento</h3>
+                <p>Programe suas publicações para os melhores horários e mantenha consistência.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Analytics</h3>
+                <p>Acompanhe o desempenho dos seus vídeos e otimize sua estratégia de conteúdo.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔄</div>
+                <h3>Automação Total</h3>
+                <p>Configure uma vez e deixe o sistema trabalhar 24/7 criando e publicando conteúdo.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it Works Section -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2>Como Funciona</h2>
+                <p>Do prompt à publicação em 4 passos simples</p>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Escreva seu Prompt</h3>
+                        <p>Descreva o vídeo que você quer criar. Nossa IA entende contexto, tom e estilo para gerar exatamente o que você precisa.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>IA Gera o Conteúdo</h3>
+                        <p>O DarkFlow processa seu prompt, gera o roteiro, seleciona mídia, cria voiceover e monta o vídeo automaticamente.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Revise e Ajuste</h3>
+                        <p>Visualize o resultado, faça ajustes se necessário, e aprove o conteúdo para publicação.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Publique no TikTok</h3>
+                        <p>Com um clique, seu vídeo é publicado diretamente no TikTok. Agende ou publique instantaneamente.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Integrations Section -->
+    <section class="integrations" id="integrations">
+        <div class="section-header">
+            <h2>Integrações</h2>
+            <p>Conecte suas plataformas favoritas</p>
+        </div>
+        <div class="integration-logos">
+            <div class="integration-item">
+                <span>📱</span>
+                <p>TikTok</p>
+            </div>
+            <div class="integration-item">
+                <span>📲</span>
+                <p>Telegram Bot</p>
+            </div>
+            <div class="integration-item">
+                <span>🔗</span>
+                <p>API REST</p>
+            </div>
+            <div class="integration-item">
+                <span>⚡</span>
+                <p>Webhooks</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <h2>Pronto para automatizar seu conteúdo?</h2>
+        <p>Junte-se a criadores que já economizam horas por semana com o DarkFlow.</p>
+        <a href="mailto:contato@darkflow.io" class="btn-primary">
+            Falar com a equipe →
+        </a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <span class="nav-logo">DarkFlow</span>
+                <p>Automação de vídeos com inteligência artificial para criadores de conteúdo.</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Produto</h4>
+                    <ul>
+                        <li><a href="#features">Recursos</a></li>
+                        <li><a href="#how-it-works">Como Funciona</a></li>
+                        <li><a href="#integrations">Integrações</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="/termos">Termos de Serviço</a></li>
+                        <li><a href="/privacidade">Política de Privacidade</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contato</h4>
+                    <ul>
+                        <li><a href="mailto:contato@darkflow.io">contato@darkflow.io</a></li>
+                        <li><a href="mailto:privacidade@darkflow.io">privacidade@darkflow.io</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
             <p>&copy; 2026 DarkFlow. Todos os direitos reservados.</p>
-            <p style="margin-top: 8px;">
-                <a href="/">Início</a> · 
-                <a href="/privacidade">Privacidade</a> · 
-                <a href="/termos">Termos</a>
-            </p>
-        </footer>
-    </div>
+        </div>
+    </footer>
 </body>
 </html>
