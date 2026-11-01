@@ -1,15 +1,12 @@
-﻿# Termos de Serviço - DarkFlow
+# DarkFlow: site and legal pages
 
-Página de Termos de Serviço para a plataforma [DarkFlow.io](https://darkflow.io)
+Static site for DarkFlow, a video automation platform: landing page, Terms of Service and Privacy Policy.
 
-## Deploy
+Live at https://sataker.github.io/termos-servicos-darkflow/
 
-Este repositório pode ser hospedado via GitHub Pages.
+- `index.html`: landing page
+- `termos.html`: Terms of Service
+- `privacidade.html`: Privacy Policy
+- `tiktok*.txt`: TikTok domain verification file. Keep it at the site root.
 
-## Arquivo
-
-- index.html - Página completa dos Termos de Serviço
-
-## Última Atualização
-
-28 de Março de 2026
+No build step: GitHub Pages serves these files directly from `main`. To preview locally, run `python3 -m http.server` and open http://localhost:8000.
